@@ -13,10 +13,10 @@ public class PatientsDAO {
 
     {
         patients = new ArrayList<>();
-        patients.add(new Patient(++PATIENT_COUNT, "Alex"));
-        patients.add(new Patient(++PATIENT_COUNT, "Anton"));
-        patients.add(new Patient(++PATIENT_COUNT, "Andrey"));
-        patients.add(new Patient(++PATIENT_COUNT, "Anastasia"));
+        patients.add(new Patient(++PATIENT_COUNT, "Alex", "Cold", "AAA0123456789", "Is treated"));
+        patients.add(new Patient(++PATIENT_COUNT, "Anton", "Injury", "BBB0123456789", "Is treated"));
+        patients.add(new Patient(++PATIENT_COUNT, "Andrey", "Fracture", "CCC0123456789", "Is treated"));
+        patients.add(new Patient(++PATIENT_COUNT, "Anastasia", "Angina", "DDD0123456789", "Is treated"));
     }
 
     public List<Patient> index(){
@@ -29,11 +29,14 @@ public class PatientsDAO {
 
     public void save(Patient patient) {
         patient.setId(++PATIENT_COUNT);
+        patient.setPatientStatus("Is treated");
         patients.add(patient);
     }
 
     public void update(int id, Patient updatePatient) {
         Patient patientToUpdate = show(id);
         patientToUpdate.setName(updatePatient.getName());
+        patientToUpdate.setDiagnoses(updatePatient.getDiagnoses());
+        patientToUpdate.setInsuranceNumber(updatePatient.getInsuranceNumber());
     }
 }

@@ -5,8 +5,11 @@
     <title>Patient</title>
 </head>
 <body>
-<p th:text="${patient.getName()}">VALUE</p>
 <p th:text="${patient.getId()}">VALUE</p>
+<p th:text="${patient.getName()}">VALUE</p>
+<p th:text="${patient.getDiagnoses()}">VALUE</p>
+<p th:text="${patient.getInsuranceNumber()}">VALUE</p>
+<p th:text="${patient.getPatientStatus()}">VALUE</p>
 
 <a th:href="@{/patients/{id}/edit(id=${patient.getId()})}">Edit</a>
 </body>
