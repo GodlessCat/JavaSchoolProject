@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Patient</title>
+</head>
+<body>
+<p th:text="${patient.getName()}">VALUE</p>
+<p th:text="${patient.getId()}">VALUE</p>
+
+<a th:href="@{/patients/{id}/edit(id=${patient.getId()})}">Edit</a>
+</body>
+</html>
