@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit patient</title>
+</head>
+<body>
+
+<form th:method="PATCH" th:action="@{/patients/{id}(id=${patient.getPatient_id()})}" th:object="${patient}">
+    <input type="hidden" th:field="*{patient_id}" value="${patient.patient_id}">
+    <label for="name">Name: </label>
+    <input type="text" th:field="*{name}" id="name"/>
+    <div style="color: red" th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Name error</div>
+    <br/>
+
+    <label for="diagnoses">Diagnoses: </label>
+    <input type="text" th:field="*{diagnoses}" id="diagnoses"/>
+    <div style="color: red" th:if="${#fields.hasErrors('diagnoses')}" th:errors="*{diagnoses}">Diagnoses error</div>
+    <br/>
+
+    <label for="insuranceNumber">Insurance Number: </label>
+    <input type="text" th:field="*{insuranceNumber}" id="insuranceNumber"/>
+    <div style="color: red" th:if="${#fields.hasErrors('insuranceNumber')}" th:errors="*{insuranceNumber}">Insurance number error</div>
+    <br/>
+
+    <label for="patientStatus">Patient Status: </label>
+    <input type="text" th:field="*{patientStatus}" id="patientStatus"/>
+    <div style="color: red" th:if="${#fields.hasErrors('patientStatus')}" th:errors="*{patientStatus}">Patient status error</div>
+
+    <br/>
+    <input type="submit" value="Edit"/>
+</form>
+
+</body>
+</html>

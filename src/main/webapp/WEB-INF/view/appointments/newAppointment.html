@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>New appointment</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+</head>
+<body>
+<div class="container">
+    <form th:method="POST" th:action="@{/appointment/{id}(id=${patient.getPatient_id()})}" th:object="${patient}">
+        <input type="hidden" th:field="*{patient_id}" value="${patient.patient_id}">
+
+        <label for="type">Type: </label>
+        <input type="text" th:field="*{type}" id="type"/>
+        <div style="color: red" th:if="${#fields.hasErrors('type')}" th:errors="*{type}">Type error</div>
+        <br/>
+
+        <label for="time">Time pattern: </label>
+        <input type="text" th:field="*{time}" id="time"/>
+        <div style="color: red" th:if="${#fields.hasErrors('time')}" th:errors="*{time}">Time error</div>
+        <br/>
+
+        <label for="dose">Dose: </label>
+        <input type="text" th:field="*{dose}" id="dose"/>
+        <div style="color: red" th:if="${#fields.hasErrors('dose')}" th:errors="*{dose}">Dose error</div>
+        <br/>
+
+        <input type="submit" value="Edit"/>
+    </form>
+</div>
+</body>
+</html>
